@@ -3,17 +3,17 @@ This project demonstrates NESTED LOOPS (i.e., loops within loops)
 in the context of PRINTING on the CONSOLE.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Joshua Key.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
     """ Calls the other functions to test them. """
-    run_test_rectangle_of_stars()
-    run_test_triangle_of_stars()
-    run_test_decreasing_exclamation_marks()
-    run_test_alternating_brackets()
-    run_test_triangle_same_number_in_each_row()
+    # run_test_rectangle_of_stars()
+    # run_test_triangle_of_stars()
+    # run_test_decreasing_exclamation_marks()
+    # run_test_alternating_brackets()
+    # run_test_triangle_same_number_in_each_row()
     run_test_triangle_all_numbers_in_each_row()
 
 
@@ -43,8 +43,12 @@ def rectangle_of_stars(r, c):
        *****
     Preconditions:  r and c are non-negative integers.
     """
+    for _ in range(r):
+        for _ in range(c):
+            print('*', end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     #  *** Unless your instructor directs you otherwise,
@@ -97,8 +101,12 @@ def triangle_of_stars(r):
        *****
     Precondition:  r is a non-negative integer.
     """
+    for k in range(r):
+        for _ in range(k + 1):
+            print('*', end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     #  *** Unless your instructor directs you otherwise,
@@ -149,8 +157,12 @@ def decreasing_exclamation_marks(m, n):
        !!
     Precondition:  m and n are positive integers with m >= n.
     """
+    for k in range(m, n - 1, -1):
+        for _ in range(k):
+            print('!', end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -191,8 +203,15 @@ def alternating_brackets(m, n):
        []
     Precondition:  m and n are positive integers with m >= n.
     """
+    for k in range(m, n - 1, -1):
+        for s in range(k):
+            if s % 2 == 1:
+                print(']', end='')
+            else:
+                print('[', end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -234,8 +253,12 @@ def triangle_same_number_in_each_row(r):
        55555
     Precondition:  r is a non-negative integer.
     """
+    for k in range(r):
+        for _ in range(k + 1):
+            print(k + 1, end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -277,8 +300,12 @@ def triangle_all_numbers_in_each_row(r):
        12345
     Precondition:  r is a non-negative integer.
     """
+    for k in range(r):
+        for s in range(k + 1):
+            print(s + 1, end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
