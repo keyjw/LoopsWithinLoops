@@ -11,8 +11,8 @@ import rosegraphics as rg
 
 def main():
     """ Calls the other functions to demonstrate them. """
-    run_test_draw_L()
-    # run_test_draw_wall_on_right()
+    # run_test_draw_L()
+    run_test_draw_wall_on_right()
 
 
 def run_test_draw_L():
@@ -99,9 +99,9 @@ def draw_L(window, circle, r, c):
 
     for _ in range(3):
         for _ in range(3):
-            cir2 = rg.Circle(rg.Point(x, y), circle.radius)
-            cir2.fill_color = circle.fill_color
-            cir2.attach_to(window)
+            cir = rg.Circle(rg.Point(x, y), circle.radius)
+            cir.fill_color = circle.fill_color
+            cir.attach_to(window)
             x += circle.radius * 2
         x = x_original
         y += 2 * circle.radius
@@ -112,13 +112,13 @@ def draw_L(window, circle, r, c):
 
     for _ in range(3):
         for _ in range(c):
-            cir2 = rg.Circle(rg.Point(x, y), circle.radius)
-            cir2.fill_color = circle.fill_color
-            cir2.attach_to(window)
+            cir = rg.Circle(rg.Point(x, y), circle.radius)
+            cir.fill_color = circle.fill_color
+            cir.attach_to(window)
             x += circle.radius * 2
         x = x_original
         y += 2 * circle.radius
-    window.render()
+    window.render(0.1)
     # ------------------------------------------------------------------
     # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
@@ -160,8 +160,32 @@ def draw_wall_on_right(rectangle, n, window):
       :type window: rg.RoseWindow
     and n is a small, positive integer.
     """
+    rectangle.attach_to(window)
+    original_corner_1_x = rectangle.corner_1.x
+    original_corner_2_x = rectangle.corner_2.x
+
+    point_1 = rectangle.corner_1
+    point_2 = rectangle.corner_2
+
+    delta_x = rectangle.get_width()
+    delta_y = rectangle.get_height()
+
+    for k in range(1, n + 1):
+        for _ in range(k):
+            rect = rg.Rectangle(point_1, point_2)
+            rect.attach_to(window)
+            point_1.x -= delta_x
+            point_2.x -= delta_x
+        point_1.y += delta_y
+        point_2.y += delta_y
+        point_1.x = original_corner_1_x
+        point_2.x = original_corner_2_x
+        if k == n:
+            point_1.y -= delta_y
+            point_2.y -= delta_y
+    window.render(0.1)
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
