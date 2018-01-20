@@ -93,12 +93,34 @@ def draw_L(window, circle, r, c):
             x += circle.radius * 2
         x = x_original
         y += 2 * circle.radius
-    y_original = ((2 * circle.radius) * r) + circle.radius
+
+    y = y_original + (2 * circle.radius * r)
+    y_original = y
+
+    for _ in range(3):
+        for _ in range(3):
+            cir2 = rg.Circle(rg.Point(x, y), circle.radius)
+            cir2.fill_color = circle.fill_color
+            cir2.attach_to(window)
+            x += circle.radius * 2
+        x = x_original
+        y += 2 * circle.radius
+
+    x = x_original + (2 * circle.radius * 3)
+    x_original = x
     y = y_original
-    cir.attach_to(window)
+
+    for _ in range(3):
+        for _ in range(c):
+            cir2 = rg.Circle(rg.Point(x, y), circle.radius)
+            cir2.fill_color = circle.fill_color
+            cir2.attach_to(window)
+            x += circle.radius * 2
+        x = x_original
+        y += 2 * circle.radius
     window.render()
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
